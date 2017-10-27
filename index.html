@@ -6,7 +6,7 @@
 <script>
 var result
 
-fetch('http://api.openweathermap.org/data/2.5/forecast/daily?q=Paris&mode=json&units=metric&cnt=16&APPID=6ed272d88d0b8c7ef4bf60dabff1a7df').then(
+fetch('http://api.openweathermap.org/data/2.5/weather?q=Montpellier&mode=json&units=metric&cnt=16&APPID=1f941724efd625f2053e2f0b3848b237').then(
 
     function(response) {
 	response.json().then(function(data){result = data})
