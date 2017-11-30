@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 	  <meta charset="utf-8">
-		<title>Intégration de données connectées</title>
+		<title>Tests Fetch</title>
 		<meta descr="testez des requêtes">
 	</head>
 	<body>
@@ -18,7 +18,7 @@
 					<form>
 			  			<fieldset>
 			    			<label>Ville</label>
-			    			<input type="text" placeholder="Entrez le nom de la ville">
+			    			<input id=v type="text" placeholder="Entrez le nom de la ville">
 			    			<button type="button" class="btn btn-primary btn-large btn-block" id="ville">Envoyez</button>
 			  			</fieldset>
 					</form>
@@ -31,30 +31,29 @@
 					</div>
 				</div>
 		</div>	
-<script>
+		<script>
 			document.addEventListener('DOMContentLoaded', () => {
-				document.querySelector("#tokenSend").addEventListener("click", testToken)
-				function testToken() 
-				{
-					//console.log("value token: " + document.querySelector("#token").value)
-					var token = '1f941724efd625f2053e2f0b3848b237'
-					var ville = document.querySelector("#ville").value
-					var url = 'http://api.openweathermap.org/data/2.5/weather?q='ville',fr&APPID='+ token
-					console.log("url : " + url)
+				document.querySelector("#ville").addEventListener("click", testToken);
+				function testToken() {
+					var result;
+					console.log(document.querySelector("#v").value);
+					var token = '1f941724efd625f2053e2f0b3848b237';
+					var ville = document.querySelector("#v").value;
+					var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+ville+',fr&mode=json&APPID='+ token;
+					console.log("url : " + url);
 					fetch(url).then(
+						
 						function(response){
+							console.log(response);
 							response.json().then(function(data){
-								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed
-							})
+								console.log(data);
+								result = data;
+								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed;
+							})	
 	 					}
  					)
 				}
 			})
 		</script>
-
-</head>
-<body>
-<div>
-</div>
-</body>
+	</body>
 </html>
