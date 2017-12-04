@@ -40,16 +40,20 @@
 					var token = '1f941724efd625f2053e2f0b3848b237';
 					var ville = document.querySelector("#v").value;
 					var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+ville+',fr&mode=json&APPID='+ token;
-					console.log("url : " + url);
+		
 					fetch(url).then(
 						
 						function(response){
-							console.log(response);
+		
 							response.json().then(function(data){
-								console.log(data);
+								
 								meteoList = data.list;
-								console.log(meteoList.length);
-								document.querySelector("#resultQuery").innerHTML = "for the date" + meteoList[0].dt_txt + " the weather will be " + meteoList[0].weather[0].description;
+			
+								for(i=0;i<meteoList.length;i++){
+									document.querySelector("#resultQuery").innerHTML += "for the date" + meteoList[i].dt_txt + " the weather will be " + meteoList[i].weather[0].description+ " </br> ";
+								}
+
+
 							})	
 	 					}
  					)
