@@ -47,8 +47,9 @@
 							console.log(response);
 							response.json().then(function(data){
 								console.log(data);
-								result = data;
-								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed;
+								meteoList = data.list;
+								console.log(meteoList.length);
+								document.querySelector("#resultQuery").innerHTML = "for the date" + meteoList[0].dt_txt + " the weather will be " + meteoList[0].weather[0].description;
 							})	
 	 					}
  					)
