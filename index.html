@@ -9,7 +9,7 @@
 		<div class="container">
 				<div class="row-fluid">
 					<div class="span12">
-						<h1 class="text-center">Obtenez la Météo de votre ville de destination</h1>
+						<h1 class="text-center">QUEL TEMPS LIRE?</h1>
 					</div>
 				</div>
 
@@ -18,7 +18,7 @@
 					<form>
 			  			<fieldset>
 			    			<label>Ville</label>
-			    			<input type="text" placeholder="Entrez le nom de la ville">
+			    			<input id=v type="text" placeholder="Entrez le nom de la ville">
 			    			<button type="button" class="btn btn-primary btn-large btn-block" id="ville">Envoyez</button>
 			  			</fieldset>
 					</form>
@@ -31,30 +31,34 @@
 					</div>
 				</div>
 		</div>	
-<script>
+		<script>
 			document.addEventListener('DOMContentLoaded', () => {
-				document.querySelector("#tokenSend").addEventListener("click", testToken)
-				function testToken() 
-				{
-					//console.log("value token: " + document.querySelector("#token").value)
-					var token = '1f941724efd625f2053e2f0b3848b237'
-					var ville = document.querySelector("#ville").value
-					var url = 'http://api.openweathermap.org/data/2.5/weather?q='ville',fr&APPID='+ token
-					console.log("url : " + url)
+				document.querySelector("#ville").addEventListener("click", testToken);
+				function testToken() {
+					var result;
+					console.log(document.querySelector("#v").value);
+					var token = '1f941724efd625f2053e2f0b3848b237';
+					var ville = document.querySelector("#v").value;
+					var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+ville+',fr&mode=json&APPID='+ token;
+		
 					fetch(url).then(
+						
 						function(response){
+		
 							response.json().then(function(data){
-								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed
-							})
+								
+								meteoList = data.list;
+			
+								for(i=0;i<meteoList.length;i++){
+									document.querySelector("#resultQuery").innerHTML += "for the date" + meteoList[i].dt_txt + " the weather will be " + meteoList[i].weather[0].description+ " </br> ";
+								}
+
+
+							})	
 	 					}
  					)
 				}
 			})
 		</script>
-
-</head>
-<body>
-<div>
-</div>
-</body>
+	</body>
 </html>
