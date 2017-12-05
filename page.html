@@ -31,6 +31,7 @@
 					</div>
 				</div>
 		</div>	
+	
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector("#ville").addEventListener("click", testToken);
@@ -47,8 +48,15 @@
 							console.log(response);
 							response.json().then(function(data){
 								console.log(data);
-								result = data;
-								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed;
+								meteoList = data.list;
+								console.log(meteoList.length);
+							
+								document.querySelector("#resultQuery").innerHTML = 
+meteoList[0].dt_txt +" "+ meteoList[0].weather[0].description + " " +
+							
+meteoList[7].dt_txt +" "+ meteoList[0].weather[0].description+ " " +
+
+meteoList[15].dt_txt +" " + meteoList[0].weather[0].description;
 							})	
 	 					}
  					)
