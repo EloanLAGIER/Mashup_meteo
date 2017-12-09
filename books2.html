@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html>
-<body>
-	<head>
-		
-		
-		<script>
-
-		function fun() {
-		document.getElementById("obj").innerHTML = "Paragraph about nothing";
-		}
-		</script>
-
-<h2>My First JavaScript</h2>
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click here for time </button>
-
-<p id = "demo"></p>
+		<head>		
 <script>
-	document.getElementById('demo').innerHTML = "Hy There";
-	</script>
+	// Ce code doit charger les données du fichier books.json
+	var booksData ;
+	function loadBooks(){              // cette fonction a une problemme : booksData.readyState == 1 
+	booksData = new XMLHttpRequest();
+	booksData.onreadystatechance = booksLoaded ;
+	booksData.open("GET" , "books.json", true);
+	booksData.send; 		
+											};
+											
+	function booksLoaded(){
+		if(booksData.readyState == 4){  
+			
+			var myObj = JSON.parse(booksData.responseText);
+        document.getElementById("demo").innerHTML = myObj;
+       alert("Data Loaded");
+		}else{
+alert("Not working: data not loaded");
+alert("Error : readyState ==" + booksData.readyState);
+				};
+	  
+													};
 	
-	
-	
-	
-	<p id = "obj"> A silly paragraph. </p>
-	<button type="button" onclick="fun()"> Try this button out </button>
-	
-	
+</script>			
+				
+		</head>
+<body onload ="loadBooks()">
+
+<h3>Reading recomandations</h3> 
+<p id="demo"></p>
+
+<button onclick="booksLoaded()">Test: Check if loaded</button>
+
+
+
 </body>
 </html> 
