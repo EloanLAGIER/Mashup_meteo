@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+	  <meta charset="utf-8">
+		<title>Tests Fetch</title>
+		<meta descr="testez des requêtes">
+	</head>
+	<body>
+		<div class="container">
+				<div class="row-fluid">
+					<div class="span12">
+						<h1 class="text-center">Obtenez la Météo de votre ville de destination</h1>
+					</div>
+				</div>
+
+				<div class="row-fluid">
+					<div class="span4 offset4">
+					<form>
+			  			<fieldset>
+			    			<label>Ville</label>
+			    			<input id=v type="text" placeholder="Entrez le nom de la ville">
+			    			<button type="button" class="btn btn-primary btn-large btn-block" id="ville">Envoyez</button>
+			  			</fieldset>
+					</form>
+					</div>
+
+					<div>
+						<h1 class="text-center">Résultat de la requête</h1>
+						<div id="resultQuery">
+						</div>
+					</div>
+				</div>
+		</div>	
+		<script>
+			document.addEventListener('DOMContentLoaded', () => {
+				document.querySelector("#ville").addEventListener("click", testToken);
+				function testToken() {
+					var result;
+					console.log(document.querySelector("#v").value);
+					var token = '1f941724efd625f2053e2f0b3848b237';
+					var ville = document.querySelector("#v").value;
+					var url = 'http://api.openweathermap.org/data/2.5/forecast?q='+ville+',fr&mode=json&APPID='+ token;
+					console.log("url : " + url);
+					fetch(url).then(
+						
+						function(response){
+							console.log(response);
+							response.json().then(function(data){
+								console.log(data);
+								result = data;
+								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed;
+							})	
+	 					}
+ 					)
+				}
+			})
+			
+		
+		</script>
+		
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = 
+"<text>var : resultQuery : </text>" + typeof resultQuery + "<br>" + 
+"<text>var : result : </text>" +typeof result + "<br>" +
+"<text>var : token : </text>" +typeof token + "<br>" +
+"<text>var : ville : </text>" +typeof ville + "<br>" +
+"<text>var : url : </text>" +typeof url + "<br>" +
+"<text>var : result : </text>" +typeof result;
+</script>
+
+	</body>
+</html>
