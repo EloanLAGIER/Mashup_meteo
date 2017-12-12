@@ -50,13 +50,20 @@
 								meteoList = data.list;
 								tableau[0]=1;	
 								for(i=0;i<meteoList.length;i++){
-									tableau[i]=[meteoList[i].dt_txt,meteoList[i].weather[0].description];
+									if (i%8==0){
+										tableau[i/8]=[meteoList[i].dt_txt.substr(0,10),meteoList[i].weather[0].description];
+									}
+									
 									document.querySelector("#resultQuery").innerHTML += "for the date" + meteoList[i].dt_txt + " the weather will be " +meteoList[i].weather[0].description+ " </br> ";
 								}
+								console.log(tableau);
+ 								var t = JSON.stringify(tableau);
+ 								console.log(t);
+
 							})	
 	 					}
  					)
- 					console.log(tableau);
+ 					
 				}
 			})
 		</script>
