@@ -1,25 +1,80 @@
-<!DOCTYPE html>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="fr">
-	<head>
+	<head id="stylefive" bgcolor=silver>
 	  <meta charset="utf-8">
 		<title>Intégration de données connectées</title>
-		<meta descr="testez des requêtes">
+		<meta descr="testez des requêtes" >
+
+<img src="entete.png" /> 
+
+<link rel="stylesheet" href="design.css">
+
+
 	</head>
-	<body>
-		<div class="container">
+
+	<body id="stylefives" >
+
+		<script>
+
+//largeur du texte défilant (en pixels)
+var marqueewidth=600;
+//hauteur du texte défilant (en pixels,Netscape)
+var marqueeheight=670;
+//vitesse de défilement du texte
+var speed=10;
+//contenu du texte défilant
+var marqueecontents='<h2><font face=Arial> Veuillez inserer votre Ville afin de recevoir toutes les informationS sur la Méteo</big><h2>';
+                        document.write('<marquee scrollAmount='+speed+' style="width:'+marqueewidth+'">'+marqueecontents+'</marquee>');
+                     function regenerate(){window.location.reload();
+        }
+
+function regenerate2(){
+               if (document.layers){
+                   setTimeout("window.onresize=regenerate",450);
+                   intializemarquee();
+        }
+        }
+ 
+function intializemarquee(){
+     document.cmarquee01.document.cmarquee02.document.write('<nobr>'+marqueecontents+'</nobr>');
+     document.cmarquee01.document.cmarquee02.document.close();
+     thelength=document.cmarquee01.document.cmarquee02.document.width;
+     scrollit();
+        }
+
+         function scrollit(){
+                if (document.cmarquee01.document.cmarquee02.left>=thelength*(-1)){
+                    document.cmarquee01.document.cmarquee02.left-=speed;
+                    setTimeout("scrollit()",100);
+        }
+                else{
+                    document.cmarquee01.document.cmarquee02.left=marqueewidth;
+                    scrollit();
+        }
+        }
+                     window.onload=regenerate2;
+</script>
+
+
+	
+		<div class="container">  
+
+		
 				<div class="row-fluid">
 					<div class="span12">
-						<h1 class="text-center">QUEL TEMPS LIRE?</h1>
+						<h1 class="text-center"></h1>
 					</div>
 				</div>
 
 				<div class="row-fluid">
 					<div class="span4 offset4">
-					<form>
+					<form class="form-style-9">
 			  			<fieldset>
 			    			<label>Ville</label>
 			    			<input id=v type="text" placeholder="Entrez le nom de la ville">
-			    			<button type="button" class="btn btn-primary btn-large btn-block" id="ville">Envoyez</button>
+			    			<input type="submit" value="Envoyé" />
 			  			</fieldset>
 					</form>
 					</div>
@@ -30,7 +85,9 @@
 						</div>
 					</div>
 				</div>
+		
 		</div>	
+
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector("#ville").addEventListener("click", testToken);
@@ -60,5 +117,10 @@
 				}
 			})
 		</script>
+
+
+
+
+
 	</body>
 </html>

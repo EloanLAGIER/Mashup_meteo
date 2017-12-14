@@ -1,0 +1,126 @@
+// DESIGN DE LA PAGE 
+
+body {
+ font-family:"trebuchet ms",sans-serif;
+ font-size:90%;
+ }
+
+
+#stylefive{
+	position:relative;
+	display:block;
+	height:26px;
+	font-size:11px;
+	font-weight:bold;
+	background:transparent url(bgOFF.gif) repeat-x top left;
+	font-family:Arial,Verdana,Helvitica,sans-serif;
+	border-bottom:3px solid #FF0066;
+	margin-top: 5px;
+	}
+
+
+img{
+	width:  1200px;
+	height: 300px;
+	margin-top: px;
+    margin-bottom: 2px;
+    margin-right: 80px;
+    margin-left: 80px;    
+}
+
+
+.form-style-9{
+    max-width: 450px;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #305A72;
+}
+
+fieldset {
+ padding:20px 20px 20px 20px;
+ margin-bottom:50px;
+ border:1px solid #DF3F3F;
+ margin-top:1px;
+ margin-left: 20px;
+  margin-right: 20px; 
+ }
+
+
+label.inline {
+ display:inline;
+ margin-right:50px;
+ }
+
+ input {
+ background-color:solid #FF0066;
+ }
+
+
+ input{
+ padding:3px;
+ border:1px solid #F5C5C5;
+ border-radius:5px;
+ width:200px;
+ box-shadow:1px 1px 2px #C0C0C0 inset;
+ }
+
+ input[type=radio] {
+ background-color:transparent;
+ border:none;
+ width:10px;
+ }
+
+
+ input[type=submit], input[type=reset] {
+ width:100px;
+ margin-left:5px;
+ box-shadow:1px 1px 1px #D83F3D;
+ cursor:pointer;
+ }
+
+.form-style-9  input[type="button"]:hover, 
+.form-style-9 input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
+    background-color: #28739E;
+}
+
+/*
+div {
+    border: 1px solid black;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+   /* background-color: lightblue;*/
+
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto }
+
+
+h1 {
+	     font-family: Raleway;
+	     font-size: 14px;
+	     font-style: normal;
+	     font-variant: normal;
+	     font-weight: 500;
+	     line-height: 26.4px;
+}
+
+p {
+	     font-family: Raleway;
+	     font-size: 14px;
+	     font-style: normal;
+	     font-variant: normal;
+	     font-weight: 400;
+     	 line-height: 20px;
+}
+
+
+
+
