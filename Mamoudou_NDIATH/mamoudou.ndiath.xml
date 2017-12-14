@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<Moi>
+    <identite>
+        <nom>NDIATH</nom>
+        <prenom>Mamoudou</prenom>
+    </identite>
+    <Naissance>
+        <datedenaissance>26 mai 1986</datedenaissance>
+        <Age>31</Age>
+    </Naissance>
+    <collegues>
+        <nom>DZONDZY</nom>
+        <prenom>Herbert</prenom>
+		 <nom>DAN COSTIN</nom>
+        <prenom>Tiberu</prenom>
+		 <nom>SIHAM</nom>
+        <prenom>Mademoiselle</prenom>
+		 <nom>ELOAN</nom>
+        <prenom>Elagier</prenom>
+    </collegues>
+</Moi>

@@ -1,0 +1,26 @@
+{
+  "Moi": {
+    "identite": {
+      "nom": "NDIATH",
+      "prenom": "Mamoudou"
+    },
+    "Naissance": {
+      "datedenaissance": "26 mai 1986",
+      "Age": "31"
+    },
+    "collegues": {
+      "nom": [
+        "DZONDZY",
+        "DAN COSTIN",
+        "SIHAM",
+        "ELAGIER"
+      ],
+      "prenom": [
+        "Herbert",
+        "Tiberu",
+        "Mademoiselle",
+        "Eloan"
+      ]
+    }
+  }
+}
