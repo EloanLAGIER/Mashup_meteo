@@ -42,14 +42,28 @@
 					var url = 'http://api.openweathermap.org/data/2.5/weather?q='ville',fr&APPID='+ token
 					console.log("url : " + url)
 					fetch(url).then(
+						
 						function(response){
+		
 							response.json().then(function(data){
-								document.querySelector("#resultQuery").innerHTML = "weather is " + data.weather[0].main + " température °F: " + data.main.temp + " vitesse du vent : " + data.wind.speed
-							})
+								
+								meteoList = data.list;
+								tableau[0]=1;	
+								for(i=0;i<meteoList.length;i++){
+									if (i%8==0){
+										tableau[i/8]=[meteoList[i].dt_txt.substr(0,10),meteoList[i].weather[0].description];
+									}
+									
+									document.querySelector("#resultQuery").innerHTML += "for the date" + meteoList[i].dt_txt + " the weather will be " +meteoList[i].weather[0].description+ " </br> ";
+								}
+								console.log(tableau);
+ 								var t = JSON.stringify(tableau);
+ 								console.log(t);
+							})	
 	 					}
  					)
+ 					
 				}
-			})
 		</script>
 
 </head>
