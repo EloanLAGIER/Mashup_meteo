@@ -1,0 +1,16 @@
+.myTable{
+
+
+}
+.myTable th{
+	padding : 10px;
+	margin: 10px;
+	border: 1px dotted green;
+	background: green;
+}
+
+.myTable td{
+	padding : 10px;
+	margin: 10px;
+	border: 1px dotted green;
+	background: white;
