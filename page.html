@@ -1,15 +1,105 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-	  <meta charset="utf-8">
-		<title>Tests Fetch</title>
-		<meta descr="testez des requêtes">
-	</head>
-	<body>
-		<div class="container">
+		<style>
+			
+body {
+    background-color: lightblue;
+}
+
+h1 {
+    color: #ff9999;
+    text-align: center;
+}
+h2 {
+    color: #990000;
+    text-align: center;
+}
+p {
+    font-family: verdana;
+    font-size: 20px;
+    
+ 
+div {
+    padding: 100px;
+    border: 1px solid #4CAF50;
+}
+}
+* {
+    box-sizing: border-box;
+}
+
+.header {
+    background-color: #f1f1f1;
+    padding: 50px;
+    text-align: center;
+}
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+div.absolute {
+    position: absolute;
+    padding-left: 30px;
+    top: 220px;
+    right: 0;
+    width: 400px;
+    height: 500px;
+    border: 3px solid #ff9999;
+    margin: 58px;
+}
+.div1{
+    position: absolute;
+    padding-left: 30px;
+    top: 220px;
+    width: 400px;
+    height: 500px;
+    left: 0;
+    border: 3px solid #ff9999;
+    margin: 58px;
+}
+</style>
+
+
+<script>
+function loadBooks(){
+				var req = new XMLHttpRequest();
+				var tmp = ""
+				req.open("GET", "books.json", true);
+				req.onreadystatechange = function(){	
+					if (req.readyState == 4){ 
+						alert("OK, readyState = " +  req.readyState )
+						alert(type(req))
+						
+						
+						data = JSON.parse(req.responseText);
+						for(i=0;i<data.length;i++){
+							tmp += '<text>' +i+' </text>';
+						};
+						 document.getElementById("demo").innerHTML = tmp
+        			} else {
+        				alert("NOT OK !")
+        			};
+				};
+			req.send(null);	
+			};
+</script>			
+
+
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<title>Tests Fetch</title>
+<meta descr="testez des requêtes">
+	
+</head>
+<body onload = "loadBooks()">
+		<div class="header">
 				<div class="row-fluid">
 					<div class="span12">
-						<h1 class="text-center">Obtenez la Météo de votre ville de destination</h1>
+						<h1 class="text-center" >Le temps pour lire</h1>
 					</div>
 				</div>
 
@@ -17,20 +107,34 @@
 					<div class="span4 offset4">
 					<form>
 			  			<fieldset>
-			    			<label>Ville</label>
+			    			<label>Destination</label>
 			    			<input id=v type="text" placeholder="Entrez le nom de la ville">
 			    			<button type="button" class="btn btn-primary btn-large btn-block" id="ville">Envoyez</button>
 			  			</fieldset>
 					</form>
 					</div>
 
-					<div>
-						<h1 class="text-center">Résultat de la requête</h1>
+					<div class = "div1" >
+						<h2>The weather</h2>
+						
+						<p id="demo"> </p>
+						
+						
 						<div id="resultQuery">
 						</div>
 					</div>
 				</div>
-		</div>	
+		</div>
+
+<section>	
+  <div class = "absolute">
+  <h2>Book recomandation</h2>
+  <p>Title :</p>
+  <p>Autor :</p>
+  <p>Description :</p>
+</section>
+</div>
+			
 		<script>
 			document.addEventListener('DOMContentLoaded', () => {
 				document.querySelector("#ville").addEventListener("click", testToken);
@@ -58,7 +162,6 @@
 		
 		</script>
 		
-<p id="demo"></p>
 
 <script>
 document.getElementById("demo").innerHTML = 
@@ -67,8 +170,10 @@ document.getElementById("demo").innerHTML =
 "<text>var : token : </text>" +typeof token + "<br>" +
 "<text>var : ville : </text>" +typeof ville + "<br>" +
 "<text>var : url : </text>" +typeof url + "<br>" +
+"<text>var : req : </text>" +typeof req + "<br>" +
 "<text>var : result : </text>" +typeof result;
-</script>
 
+</script>
+</p>
 	</body>
 </html>
