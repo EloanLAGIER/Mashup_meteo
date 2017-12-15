@@ -3,4 +3,4 @@ Le temps pour lire est une humble application qui recomande un ou plusieurs livr
 
 
 
-APIs :open Weather; open Library (https://openlibrary.org/dev/docs/api/books)
+APIs :open Weather(https://github.com/juicebox81/Mashup_meteo/blob/master); open Library (https://openlibrary.org/dev/docs/api/books)
